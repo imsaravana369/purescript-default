@@ -1,0 +1,28 @@
+{
+  "name": "purescript-default",
+  "homepage": "https://github.com/imsaravana369/purescript-default",
+  "authors": [
+    "Saravanan M <imsaravana369@gmail.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url": "https://github.com/imsaravana369/purescript-default.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude" : "^6.0.0",
+    "purescript-either" : "^6.0.0",
+    "purescript-maybe" : "^6.0.0",
+    "purescript-tuples" : "^7.0.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support" : "^6.0.0",
+    "purescript-exceptions" : "^6.0.0"
+  }
+}
