@@ -10,6 +10,9 @@ import Data.Maybe(Maybe(..))
 import Data.Generic.Rep
 import Data.Eq.Generic(genericEq)
 import Data.Show.Generic(genericShow)
+import Data.List.Types(List(..))
+import Data.Map.Internal(Map,empty) as Map
+import Foreign.Object(Object,empty) as Foreign
 
 data Color = RED | YELLOW | GREEN
 instance defaultColorInstance :: DefaultValue Color where
@@ -35,6 +38,15 @@ main = do
   
   check tupleDefaultValue expectedTuple
 
+  let listDefaultValue = defaultValue :: List Int 
+      expectedList = Nil
+
+  check listDefaultValue expectedList
+
+  let mapDefaultValue = defaultValue :: Map.Map String Int 
+      expectedMap = Map.empty
+
+  check mapDefaultValue expectedMap
 
   let defaultColor = defaultValue :: Color 
       expectedColor = GREEN

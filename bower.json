@@ -1,5 +1,5 @@
 {
-  "name": "purescript-default",
+  "name": "default",
   "homepage": "https://github.com/imsaravana369/purescript-default",
   "authors": [
     "Saravanan M <imsaravana369@gmail.com>"
@@ -19,7 +19,10 @@
     "purescript-prelude" : "^6.0.0",
     "purescript-either" : "^6.0.0",
     "purescript-maybe" : "^6.0.0",
-    "purescript-tuples" : "^7.0.0"
+    "purescript-tuples" : "^7.0.0",
+    "purescript-lists" : "^7.0.0",
+    "purescript-ordered-collections": "^3.0.0",
+    "purescript-foreign-object" : "^4.0.0"
   },
   "devDependencies": {
     "purescript-psci-support" : "^6.0.0",

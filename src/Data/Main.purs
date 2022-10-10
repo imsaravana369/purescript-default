@@ -16,6 +16,9 @@ import Prim.Row as Row
 import Prim.RowList as RL
 import Record.Unsafe (unsafeSet)
 import Type.Proxy (Proxy(..))
+import Data.List.Types(List(..))
+import Data.Map.Internal(Map,empty) as Map
+import Foreign.Object(Object,empty) as Foreign
 
 class DefaultValue a where
    defaultValue :: a 
@@ -44,6 +47,15 @@ instance defaultEitherLeft :: (DefaultValue e) => DefaultValue (Either e a) wher
 instance defaultArray :: DefaultValue (Array a) where 
    defaultValue = []
 
+instance  defaultList :: DefaultValue (List a) where 
+    defaultValue = Nil
+
+instance  defaultMap :: DefaultValue (Map.Map k v) where 
+    defaultValue = Map.empty
+
+instance  defaultForeignObject :: DefaultValue (Foreign.Object a) where 
+    defaultValue = Foreign.empty
+    
 instance defaultTuple :: (DefaultValue a, DefaultValue b) => DefaultValue (Tuple a b) where 
    defaultValue = Tuple defaultValue defaultValue
 class DefaultValueRecord :: RL.RowList Type -> Row Type -> Constraint
@@ -52,7 +64,7 @@ class DefaultValueRecord rowList row| rowList -> row where
 
 instance  defaultValueRecordNil :: DefaultValueRecord RL.Nil () where 
     defaultRecord _  = {}
-    
+
 instance  defaultValueRecordCons :: 
     (IsSymbol key
     , DefaultValue focus
